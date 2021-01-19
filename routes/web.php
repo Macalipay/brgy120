@@ -33,6 +33,16 @@ Route::group(['prefix' => 'certification'], function (){
     Route::get          ('/template/{id}',               'CertificateController@template'                        )->name('reason_update');
 });
 
+// CERTIFICATION
+Route::group(['prefix' => 'indigency'], function (){
+    Route::get          ('/',                            'IndigencyController@index'                          )->name('reason');
+    Route::post         ('/save',                        'IndigencyController@store'                          )->name('reason');
+    Route::get          ('/edit/{id}',                   'IndigencyController@edit'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'IndigencyController@update'                         )->name('reason_update');
+    Route::get          ('/destroy/{id}',                'IndigencyController@destroy'                        )->name('reason_update');
+    Route::get          ('/template/{id}',               'IndigencyController@template'                        )->name('reason_update');
+});
+
 // PARTICIPANT
 Route::group(['prefix' => 'certificate'], function (){
     Route::get          ('/',                            'ParticipantController@index'                          )->name('reason');

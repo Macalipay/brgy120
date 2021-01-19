@@ -62,24 +62,25 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <p class="text-center" style="font-weight: bold; font-size: 25px">OFFICE OF THE BARANGAY CHAIRMAN</p>
+                    <p class="text-center" style="font-weight: bold; font-size: 25px">OFFICE OF THE BARANGAY CHAIRMAN</p><br>
                 </div>
             </div>
             <hr style="border-top: solid 1px black;">
             <hr>
             <br>
-            <p class="text-right" style="font-weight: bold; font-size: 12px"> Control No: {{ \Carbon\Carbon::now()->format('Y') }} - {{$data->code}}</p><br>
+            <p class="text-right" style="font-weight: bold; font-size: 12px; "> Control No:{{ \Carbon\Carbon::now()->format('Y') }} - {{$data->code}}</p><br>
             
-            <div class="row">
+            <div class="row" >
                 <br><br><br><br>
-                <p class="text-center" style="font-weight: bold; font-size: 30px;"> CERTIFICATION</p><br><br><br><br>
-
+                <p class="text-center" style="font-weight: bold; font-size: 30px;"> CERTIFICATE OF INDIGENCY</p><br><br>
             </div>
             <br><br>
              <div class="content">
                 <p style="font-size: 20px;text-indent: 50px;"> This is to certify that <b>{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}}</b>, 
                     {{\Carbon\Carbon::parse($data->youth->birthday)->diff(\Carbon\Carbon::now())->format('%y') }} years old, is a bonafide resident of <b>{{ $data->youth->house_number . ' ' . $data->youth->street->street}}</b> 
-                    Brgy. 120, Zone 10 District II, Caloocan City for <b>{{\Carbon\Carbon::parse($data->youth->residing_date)->diff(\Carbon\Carbon::now())->format('%y year(s) %m month(s)') }}</b>.</p><br>
+                    Brgy. 120, Zone 10 District II, Caloocan City for <b>{{\Carbon\Carbon::parse($data->youth->residing_date)->diff(\Carbon\Carbon::now())->format('%y year(s) %m month(s)') }}</b> and belongs to 
+                    indigent families of this Barangay. The income of his/her family is barely enough to meet day-to-day needs. His/Her situation in life will not allow them 
+                    to engage in any service in relation to ther immediate needs.</p><br>
                 <p style="font-size: 20px;text-indent: 50px;"> This certification was issued upon request of <b>Mr. {{$data->youth->lastname}}</b> in connection
                 with his/her application for <b>{{$data->purpose}}</b> and for all legal intents it may serve him/her best.</p><br>
 
@@ -94,7 +95,7 @@
                 <div class="col-xs-4">
                     <p class="text-right" style="font-size: 15px"> Attested By:</p>
                </div>
-               <br><br><br>
+               <br><br>
             
                <div style="line-height: 5px">
                     <div class="col-xs-4">
@@ -112,14 +113,7 @@
             
                 <div class="row">
                     <div class="col-xs-6">
-                            <div class="col-xs-6">
-                                <div style="border: 1px solid black; height:130px; width:130px"></div>
-                                <p style="font-weight: bold;font-size: 13px">LEFT THUMBMARK</p>
-                            </div>
-                            <div class="col-xs-6">
-                                <div style="border: 1px solid black; height:130px; width:130px"></div>
-                                <p style="font-weight: bold; font-size: 13px">RIGHT THUMBMARK</p>
-                            </div>
+                            
                     </div>
                     <div class="col-xs-6  mt-5" style="line-height: 5px">
                         <br><br><br><br><br><br><br><br><br>
@@ -127,7 +121,7 @@
                         <p class="text-right" style="font-size: 12px"> Signature Over Printed Name </p><br><br><br><br><br><br>
 
 
-                        <p class="text-right" style="font-size: 12px"> <i>Note:</i> Valid for three (3) months only. </p>
+                        <p class="text-right" style="font-size: 12px"> <i>Note:</i> Valid for three (6) months only. </p>
                         <p class="text-right" style="font-size: 12px">  Not valid without official seal. </p>
                     </div>
                 </div>

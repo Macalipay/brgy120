@@ -59,4 +59,9 @@ class Youth extends Model
     {
         return $this->hasOne(Certificate::class);
     }
+
+    public function indigency()
+    {
+        return $this->hasOne(Indigency::class);
+    }
 }
