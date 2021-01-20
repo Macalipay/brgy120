@@ -153,7 +153,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">{{App\Youth::count()}}</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{App\Certificate::count()}}</h1>
                             <div class="mb-0">
                                 <span>Total Number of Issued Certificate
                             </div>
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">{{App\Cicl::count()}}</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{App\Indigency::count()}}</h1>
                             <div class="mb-0">
                                 <span class="text-default">Total Number of Issued Certificate of Indigency
                             </div>
@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="display-5 mt-1 mb-3">{{App\Youth::where('lgbtqi', 'on')->count()}}</h1>
+                            <h1 class="display-5 mt-1 mb-3">{{App\Business::count()}}</h1>
                             <div class="mb-0">
                                 <span class="text-default">Total Number of Issued Barangay Business Permit
                             </div>

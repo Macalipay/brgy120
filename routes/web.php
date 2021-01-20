@@ -152,6 +152,15 @@ Route::group(['prefix' => 'calendar'], function (){
     Route::get          ('/destroy/{id}',                'CalendarController@destroy'                        )->name('reason_update');
 });
 
+// REPORT
+Route::group(['prefix' => 'report'], function (){
+    Route::get          ('/resident',                    'ReportController@resident'                          )->name('reason');
+    Route::get          ('/blotter',                     'ReportController@blotter'                          )->name('reason');
+    Route::get          ('/pwd',                         'ReportController@pwd'                           )->name('reason');
+    Route::get         ('/lgbtqi',                      'ReportController@lgbtqi'                         )->name('reason_update');
+});
+
+
 // COUNCIL
 Route::group(['prefix' => 'council'], function (){
     Route::get          ('/',                            'CouncilController@index'                          )->name('reason');

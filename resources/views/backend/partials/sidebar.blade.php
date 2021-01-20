@@ -96,6 +96,23 @@
                 Extras
             </li>
             <li class="sidebar-item">
+                <a href="#report" data-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle mr-2 fas fa-fw fa-file-csv"></i> <span class="align-middle">Reports</span>
+                </a>
+                <ul id="report" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('report/resident') }}">Total Resident</a></li>
+                </ul>
+                <ul id="report" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('report/blotter') }}">Total Blotter</a></li>
+                </ul>
+                <ul id="report" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('report/pwd') }}">Total PWD</a></li>
+                </ul>
+                <ul id="report" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('report/lgbtqi') }}">Total LGBTQI</a></li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
                 <a href="#document" data-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle mr-2 fas fa-fw fa-book"></i> <span class="align-middle">Documentation</span>
                 </a>
@@ -103,11 +120,7 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('elfinder') }}">Files</a></li>
                 </ul>
             </li>
-            {{-- <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ url('calendar')}}">
-                    <i class="align-middle mr-2 far fa-fw fa-calendar-alt"></i> <span class="align-middle">Calendar</span>
-                </a>
-            </li> --}}
+           
         </ul>
     </div>
 </nav>

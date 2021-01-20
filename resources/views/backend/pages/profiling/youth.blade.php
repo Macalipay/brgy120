@@ -30,6 +30,8 @@
                                                 <th>Gender</th>
                                                 <th>House Number</th>
                                                 <th>House street</th>
+                                                <th>Contact</th>
+                                                <th>Precinct No</th>
                                                 <th>Birthday</th>
                                             </tr>
                                         </thead>
@@ -45,6 +47,8 @@
                                                     <td>{{ $youth->gender}}</td>
                                                     <td>{{ $youth->house_number}}</td>
                                                     <td>{{ $youth->street->street}}</td>
+                                                    <td>{{ $youth->contact}}</td>
+                                                    <td>{{ $youth->precinct_no}}</td>
                                                     <td>{{date('M-d-y', strtotime($youth->birthday))}}</td>
                                                 </tr>
                                             @endforeach
