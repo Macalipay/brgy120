@@ -37,8 +37,8 @@
                 <ul id="certificate" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('certification') }}">Certification</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('indigency') }}">Certificate of Indigency</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('cicl') }}">Barangay Clearance</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('cicl') }}">Barangay Business Permit</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('business') }}">Business Permit</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('#') }}">Barangay Clearance</a></li>
                 </ul>
 
                 <a href="#identification" data-toggle="collapse" class="sidebar-link collapsed">

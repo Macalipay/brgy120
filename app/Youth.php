@@ -64,4 +64,9 @@ class Youth extends Model
     {
         return $this->hasOne(Indigency::class);
     }
+
+    public function business()
+    {
+        return $this->hasOne(Business::class);
+    }
 }
