@@ -20,7 +20,7 @@ class CertificateController extends Controller
     public function template($id)
     {
         $data = Certificate::where('id', $id)->first();
-        $chairman = Council::where('position', 'Barangay Captain')->first();
+        $chairman = Council::where('position', 'Barangay Chairman')->first();
         $secretary = Council::where('position', 'Secretary')->first();
         return view('backend.partials.certificate_template.certification_template', compact('data', 'chairman', 'secretary'));
     }

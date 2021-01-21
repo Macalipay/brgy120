@@ -102,9 +102,9 @@
                         <p class="text-left" style="font-size: 12px"> Barangay Chairman </p><br>
                     </div>
 
-                    <div class="col-xs-4"></div>
+                    <div class="col-xs-2"></div>
 
-                    <div class="col-xs-4">
+                    <div class="col-xs-6">
                             <p class="text-right" style="font-weight: bold; font-size: 20px"> <u style="text-transform: uppercase;">{{$secretary->firstname . ' ' . substr($secretary->middlename, 0,  1) . ' ' . $secretary->lastname }} </u> </p><br>
                             <p class="text-right" style="font-size: 12px"> Barangay Secretary </p><br><br>
                     </div>
