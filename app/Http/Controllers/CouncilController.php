@@ -21,7 +21,7 @@ class CouncilController extends Controller
             'lastname' => ['required', 'max:250'],
             'position' => ['required', 'max:250'],
             'message' => ['required', 'max:600'],
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'picture' => 'required|mimes:jpeg,png,jpg,gif',
         ]);
 
         $file = $request->picture->getClientOriginalName();

@@ -367,7 +367,7 @@
 
                 },
                 success: function(data) {
-                    $('.modal-title').text('Update Youth');
+                    $('.modal-title').text('Update Resident');
                     $('.submit-button').text('Update');
                         $.each(data, function() {
                             $.each(this, function(k, v) {

@@ -28,6 +28,7 @@
                 </a>
                 <ul id="resident" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('youth') }}">Resident Information</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{ url('other') }}">Other Information</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('cicl') }}">Blotter</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="{{ url('pwd_list') }}">PWD</a></li>
                 </ul>

@@ -152,6 +152,15 @@ Route::group(['prefix' => 'calendar'], function (){
     Route::get          ('/destroy/{id}',                'CalendarController@destroy'                        )->name('reason_update');
 });
 
+// OTHERR
+Route::group(['prefix' => 'other'], function (){
+    Route::get          ('/',                            'OtherInformationController@index'                          )->name('reason');
+    Route::post         ('/save',                        'OtherInformationController@store'                          )->name('reason');
+    Route::get          ('/edit/{id}',                   'OtherInformationController@edit'                           )->name('reason');
+    Route::post         ('/update/{id}',                 'OtherInformationController@update'                         )->name('reason_update');
+    Route::get          ('/destroy/{id}',                'OtherInformationController@destroy'                        )->name('reason_update');
+});
+
 // REPORT
 Route::group(['prefix' => 'report'], function (){
     Route::get          ('/resident',                    'ReportController@resident'                          )->name('reason');

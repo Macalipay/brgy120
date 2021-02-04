@@ -1,53 +1,51 @@
 @extends('backend.master.template')
 @section('content')
     <main class="content">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <div class="header">
                 <h1 class="header-title">
-                    Blotter
+                    Resident Other Information
                 </h1>
             </div>
-            <div class="row">
-                <div class="col-md-12">
+            <div class="row ">
+                <div class="col-md-12 ">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Blotter Record
+                            <h5 class="card-title">Additional Information Screen
                                 <button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#defaultModalPrimary" style="float:right">
-                                    Add Blotter
+                                    Add Information
                                 </button>
                             </h5>
                         </div>
                         @include('backend.partials.flash-message')
-                        <div class="col-12">
+                        <div class="col-12 mb-3">
                             <div class="card">
                                 <div class="card-body">
                                     <table id="datatables" class="table table-striped" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Resident</th>
-                                                <th>Case</th>
-                                                <th>Date Happen</th>
-                                                <th>Date Filled</th>
-                                                <th>Complainant</th>
-                                                <th>Remarks</th>
                                                 <th>Action</th>
+                                                <th>Resident</th>
+                                                <th>Picture</th>
+                                                <th>Signature</th>
+                                                <th>Right Thumb</th>
+                                                <th>Left Thumb</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($cicls as $key => $cicl)
+                                            @foreach ($informations as $key => $information)
                                                 <tr>
                                                     <td>{{ ++$key}}</td>
-                                                    <td>{{ $cicl->youth->firstname . ' ' . $cicl->youth->lastname}}</td>
-                                                    <td>{{ $cicl->case_type->case}}</td>
-                                                    <td>{{date('M-d-y', strtotime($cicl->date_happen))}}</td>
-                                                    <td>{{date('M-d-y', strtotime($cicl->date_filed))}}</td>
-                                                    <td>{{ $cicl->complainant}}</td>
-                                                    <td>{{ $cicl->remarks}}</td>
                                                     <td class="table-action">
-                                                        <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$cicl->id}}></a>
-                                                        <a href="{{url('cicl/destroy/' . $cicl->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                                        <a href="#" class="align-middle fas fa-fw fa-pen edit" title="Edit" data-toggle="modal" data-target="#defaultModalPrimary" id={{$information->id}}></a>
+                                                        <a href="{{url('other/destroy/' . $information->id)}}" onclick="alert('Are you sure you want to Delete?')"><i class="align-middle fas fa-fw fa-trash"></i></a>
                                                     </td>
+                                                    <td>{{ $information->youth->firstname . ' ' . $information->youth->lastname}}</td>
+                                                    <td><img src="{{asset('/images/other/'.$information->picture)}}" height="30px" width="30px"></td>
+                                                    <td><img src="{{asset('/images/other/'.$information->signature)}}" height="30px" width="30px"></td>
+                                                    <td><img src="{{asset('/images/other/'.$information->right_thumb)}}" height="30px" width="30px"></td>
+                                                    <td><img src="{{asset('/images/other/'.$information->left_thumb)}}" height="30px" width="30px"></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -61,18 +59,19 @@
         </div>
         {{-- MODAL --}}
         <div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Blotter</h5>
+                        <h5 class="modal-title">Add Resident</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body m-3">
-                        <form id="modal-form" action="{{url('cicl/save')}}" method="post">
+                        <form id="modal-form" action="{{url('other/save')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group row lgbtqi_row">
+                        <div class="form-group col-md-12">
+                            <div class="form-group row">
                                 <label class="col-form-label col-sm-3 text-sm-right">Resident</label>
                                 <div class="col-sm-9">
                                     <select id="youth_id" name="youth_id" class="form-control">
@@ -83,46 +82,31 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="form-group row lgbtqi_row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Case</label>
-                                <div class="col-sm-9">
-                                    <select id="case_id" name="case_id" class="form-control">
-                                        <option selected disabled hidden>Choose Case</option>
-                                        @foreach ($case_types as $case_type)
-                                            <option value="{{$case_type->id}}">{{$case_type->case}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Date Happen</label>
+                                <label class="col-form-label col-sm-3 text-sm-right">Picture</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" name="date_happen" id="date_happen" placeholder="Enter Date">
+                                    <input type="file" id="picture" name="picture" class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Date Filed</label>
+                                <label class="col-form-label col-sm-3 text-sm-right">Signature</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" name="date_filed" id="date_filed" placeholder="Enter Date">
+                                    <input type="file" id="signature" name="signature" class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Complainants</label>
+                                <label class="col-form-label col-sm-3 text-sm-right">Right Thumb Mark</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="complainant" id="complainant" placeholder="Enter Complainant">
+                                    <input type="file" id="right_thumb" name="right_thumb" class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Remarks</label>
+                                <label class="col-form-label col-sm-3 text-sm-right">Left Thumb Mark</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="remarks" id="remarks" placeholder="Enter Remarks">
+                                    <input type="file" id="left_thumb" name="left_thumb" class="form-control">
                                 </div>
                             </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -143,23 +127,26 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: '/cicl/edit/' + id,
+                url: '/other/edit/' + id,
                 method: 'get',
                 data: {
 
                 },
                 success: function(data) {
-                    $('.modal-title').text('Update Blotter');
+                    $('.modal-title').text('Update Resident');
                     $('.submit-button').text('Update');
+                    var test =data.informations.picture;
+                    document.getElementById("picture").file.test;
                         $.each(data, function() {
                             $.each(this, function(k, v) {
-                                $('#'+k).val(v);
+                                $('#'+k).html(v);
                             });
+
+                           
                         });
-                    $('#modal-form').attr('action', 'cicl/update/' + data.cicls.id);
+                    $('#modal-form').attr('action', 'other/update/' + data.informations.id);
                 }
             });
-
         }
 
         $(function() {
@@ -172,9 +159,9 @@
             });
 
             $('.add').click(function(){
-                $('.modal-title').text('Add Blotter');
+                $('.modal-title').text('Add Information');
                 $('.submit-button').text('Add');
-                $('#modal-form').attr('action', 'cicl/save');
+                $('#modal-form').attr('action', 'other/save');
 
             })
         });

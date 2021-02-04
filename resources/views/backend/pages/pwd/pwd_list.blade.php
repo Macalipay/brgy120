@@ -25,7 +25,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Youth</th>
+                                                <th>Resident</th>
                                                 <th>Type of Disability</th>
                                                 <th>Action</th>
                                             </tr>
@@ -56,7 +56,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add PWD Type</h5>
+                        <h5 class="modal-title">Add PWD</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -65,10 +65,10 @@
                         <form id="modal-form" action="{{url('pwd_list/save')}}" method="post">
                             @csrf
                             <div class="form-group row lgbtqi_row">
-                                <label class="col-form-label col-sm-3 text-sm-right">Youth</label>
+                                <label class="col-form-label col-sm-3 text-sm-right">Resident</label>
                                 <div class="col-sm-9">
                                     <select id="youth_id" name="youth_id" class="form-control">
-                                        <option selected disabled hidden>Choose Youth</option>
+                                        <option selected disabled hidden>Choose Resident</option>
                                         @foreach ($youths as $youth)
                                             <option value="{{$youth->id}}">{{$youth->firstname . ' ' . $youth->lastname}}</option>
                                         @endforeach
@@ -113,7 +113,7 @@
 
                 },
                 success: function(data) {
-                    $('.modal-title').text('Update PWD Type');
+                    $('.modal-title').text('Update PWD');
                     $('.submit-button').text('Update');
                         $.each(data, function() {
                             $.each(this, function(k, v) {
@@ -136,7 +136,7 @@
             });
 
             $('.add').click(function(){
-                $('.modal-title').text('Add PWD Type');
+                $('.modal-title').text('Add PWD');
                 $('.submit-button').text('Add');
                 $('#modal-form').attr('action', 'pwd_list/save');
 

@@ -43,7 +43,7 @@
         <div class="row">
             <br>
             <div class="col-xs-3">
-                <img src="{{ asset('/images/logo/logo.png') }}" alt="logo">
+                <img src="{{ asset('/images/logo/logo 2.png') }}" alt="logo">
             </div>
 
             <div class="col-xs-6">

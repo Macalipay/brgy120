@@ -50,6 +50,11 @@ class Youth extends Model
         return $this->hasOne(Cicl::class);
     }
 
+    public function other()
+    {
+        return $this->hasOne(OtherInformation::class);
+    }
+
     public function street()
     {
         return $this->belongsTo(Street::class, 'street_id');
