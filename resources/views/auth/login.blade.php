@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="{{ asset('images/logo/logo.png')}}" rel="icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
 	<meta name="author" content="Bootlab">
