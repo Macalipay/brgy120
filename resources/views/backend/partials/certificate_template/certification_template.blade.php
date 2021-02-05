@@ -80,7 +80,12 @@
                 <p style="font-size: 20px;text-indent: 50px;"> This is to certify that <b>{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}}</b>, 
                     {{\Carbon\Carbon::parse($data->youth->birthday)->diff(\Carbon\Carbon::now())->format('%y') }} years old, is a bonafide resident of <b>{{ $data->youth->house_number . ' ' . $data->youth->street->street}}</b> 
                     Brgy. 120, Zone 10 District II, Caloocan City for <b>{{\Carbon\Carbon::parse($data->youth->residing_date)->diff(\Carbon\Carbon::now())->format('%y year(s) %m month(s)') }}</b>.</p><br>
-                <p style="font-size: 20px;text-indent: 50px;"> This certification was issued upon request of <b>Mr. {{$data->youth->lastname}}</b> in connection
+                <p style="font-size: 20px;text-indent: 50px;"> This certification was issued upon request of <b>
+                    @if ($data->youth->gender == 'Male')
+                    Mr.
+                    @else
+                    Ms.
+                    @endif {{$data->youth->lastname}}</b> in connection
                 with his/her application for <b>{{$data->purpose}}</b> and for all legal intents it may serve him/her best.</p><br>
 
                 <p style="font-size: 20px;text-indent: 50px;"> Issued this <b>{{ \Carbon\Carbon::now()->format('dS') }}</b> day of <b>{{ \Carbon\Carbon::now()->format('F') }}</b> year <b>{{ \Carbon\Carbon::now()->format('Y') }}</b> at the office of the Barangay Chairman.</p><br>
@@ -113,17 +118,27 @@
                 <div class="row">
                     <div class="col-xs-6">
                             <div class="col-xs-6">
-                                <div style="border: 1px solid black; height:130px; width:130px"></div>
+                                <div style="border: 1px solid black; height:130px; width:130px">
+                                    <img src="{{ asset('/images/other/' . $other->left_thumb) }}" width="100%" height="100%" style="padding:5px">
+                                </div>
                                 <p style="font-weight: bold;font-size: 13px">LEFT THUMBMARK</p>
                             </div>
                             <div class="col-xs-6">
-                                <div style="border: 1px solid black; height:130px; width:130px"></div>
+                                <div style="border: 1px solid black; height:130px; width:130px">
+                                    <img src="{{ asset('/images/other/' . $other->right_thumb) }}" width="100%" height="100%" style="padding:5px">
+                                </div>
                                 <p style="font-weight: bold; font-size: 13px">RIGHT THUMBMARK</p>
                             </div>
                     </div>
                     <div class="col-xs-6  mt-5" style="line-height: 5px">
                         <br><br><br><br><br><br><br><br><br>
-                        <p class="text-right" style="font-weight: bold; font-size: 20px"> <u style="text-transform: uppercase;">{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}} </u> </p><br>
+                        <p class="text-right" style="font-weight: bold; font-size: 20px">
+                        @if ($other != null)
+                            <img src="{{ asset('/images/other/' . $other->signature) }}" width="50%" height="70px" style="padding:5px">    <br>
+                        @else
+                            
+                        @endif    <br>
+                        <u style="text-transform: uppercase;">{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}} </u> </p><br>
                         <p class="text-right" style="font-size: 12px"> Signature Over Printed Name </p><br><br><br><br><br><br>
 
 

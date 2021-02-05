@@ -33,7 +33,6 @@
                                                 <th>Location</th>
                                                 <th>Status</th>
                                                 <th>Issued Date</th>
-                                                <th>Purpose</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,8 +51,6 @@
                                                     <td>{{ $business->business_location}}</td>
                                                     <td>{{ $business->renewal}}</td>
                                                     <td>{{date('M-d-y', strtotime($business->issued_date))}}</td>
-                                                    <td>{{ $business->purpose}}</td>
-                                                    
                                                 </tr>
                                             @endforeach
                                         </tbody>

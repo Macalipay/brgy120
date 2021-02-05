@@ -135,16 +135,12 @@
                 success: function(data) {
                     $('.modal-title').text('Update Resident');
                     $('.submit-button').text('Update');
-                    var test =data.informations.picture;
-                    document.getElementById("picture").file.test;
+                    $('#modal-form').attr('action', 'other/update/' + data.informations.id);
                         $.each(data, function() {
                             $.each(this, function(k, v) {
-                                $('#'+k).html(v);
+                                $('#'+k).val(v);
                             });
-
-                           
                         });
-                    $('#modal-form').attr('action', 'other/update/' + data.informations.id);
                 }
             });
         }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Business;
 use App\Youth;
 use App\Council;
+use App\OtherInformation;
 use Illuminate\Http\Request;
 
 class BusinessController extends Controller
@@ -19,9 +20,10 @@ class BusinessController extends Controller
     public function template($id)
     {
         $data = Business::where('id', $id)->first();
+        $other = OtherInformation::where('id', $id)->first();
         $chairman = Council::where('position', 'Barangay Chairman')->first();
         $secretary = Council::where('position', 'Secretary')->first();
-        return view('backend.partials.certificate_template.business_template', compact('data', 'chairman', 'secretary'));
+        return view('backend.partials.certificate_template.business_template', compact('data', 'chairman', 'secretary', 'other'));
     }
 
     public function store(Request $request)

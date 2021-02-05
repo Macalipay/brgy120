@@ -152,7 +152,7 @@ Route::group(['prefix' => 'calendar'], function (){
     Route::get          ('/destroy/{id}',                'CalendarController@destroy'                        )->name('reason_update');
 });
 
-// OTHERR
+// OTHER
 Route::group(['prefix' => 'other'], function (){
     Route::get          ('/',                            'OtherInformationController@index'                          )->name('reason');
     Route::post         ('/save',                        'OtherInformationController@store'                          )->name('reason');

@@ -86,7 +86,7 @@
              <div class="content">
                 <p style="font-size: 20px;text-indent: 50px;"> The Undersigned <b>{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}}</b>, 
                     (name of the Owner) of <b>{{$data->business_name}}</b> (Business Name) with Residence apply for NEW/RENEWAL of Barangay Clearance, under Section 152-c of Republic 
-                Act No. 7160 fir Business or Activity which is the nature of <b>$data->business_nature</b> which is presently and regulation that are prevailing in connection with the said 
+                Act No. 7160 fir Business or Activity which is the nature of <b>{{$data->business_nature}}</b> which is presently and regulation that are prevailing in connection with the said 
                 Business or Activity</p><br>
 
                 <p style="font-size: 20px;text-indent: 50px;"> Issued this <b>{{ \Carbon\Carbon::now()->format('dS') }}</b> day of <b>{{ \Carbon\Carbon::now()->format('F') }}</b> year <b>{{ \Carbon\Carbon::now()->format('Y') }}</b> at the office of the Barangay Chairman.</p><br>
@@ -122,7 +122,13 @@
                     </div>
                     <div class="col-xs-8  mt-5" style="line-height: 5px">
                         <br><br><br><br><br><br><br><br><br>
-                        <p class="text-right" style="font-weight: bold; font-size: 20px"> <u style="text-transform: uppercase;">{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}} </u> </p><br>
+                        <p class="text-right" style="font-weight: bold; font-size: 20px">
+                        @if ($other != null)
+                            <img src="{{ asset('/images/other/' . $other->signature) }}" width="50%" height="70px" style="padding:5px">    <br>
+                        @else
+                            
+                        @endif    <br>
+                        <u style="text-transform: uppercase;">{{$data->youth->lastname . ', ' . $data->youth->firstname . ' ' . substr($data->youth->middlename, 0,  1) . '.'}} </u> </p><br>
                         <p class="text-right" style="font-size: 12px"> Signature Over Printed Name </p><br><br><br><br><br><br>
 
 
